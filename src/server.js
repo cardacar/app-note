@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 //Motor de plantilla para usar en la app
 const exphbs = require('express-handlebars');
-
+const morgan = require('morgan');
 
 //Initializations
 const app = express();
@@ -23,6 +23,7 @@ app.set('view engine', '.hbs');
 
 //Middlewars
 app.use(express.urlencoded({extended: false}));//Le dice al servidor cuando llega datos de un formulario convertirlos en json
+app.use(morgan('dev'))
 
 //Global Variables
 

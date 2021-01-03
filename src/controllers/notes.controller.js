@@ -2,10 +2,12 @@
 const notesCtrl = {};
 
 notesCtrl.renderNoteForm = (req, res) =>{
-    res.send('note add')
+    res.render('notes/new-notes')
 }
 
+//Recibo los datos del formulario de new-note con req.body
 notesCtrl.createNewNote = (req, res) =>{
+    console.log(req.body)
     res.send('New Note')
 }
 
