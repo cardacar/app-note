@@ -29,6 +29,7 @@ app.use(express.urlencoded({extended: false}));//Le dice al servidor cuando lleg
 
 //Routes
 app.use(require('./routes/index.routes'));
+app.use(require('./routes/notes.routes'));
 
 //Static file
 app.use(express.static(path.join(__dirname + '/public')));
