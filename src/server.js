@@ -5,6 +5,8 @@ const path = require('path');
 //Motor de plantilla para usar en la app
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
+//Importamos la libreria que nos brinda la posibilidad de usar el DELETE
+const methodOverride = require('method-override');
 
 //Initializations
 const app = express();
@@ -22,8 +24,10 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //Middlewars
-app.use(express.urlencoded({extended: false}));//Le dice al servidor cuando llega datos de un formulario convertirlos en json
 app.use(morgan('dev'))
+app.use(express.urlencoded({extended: false}));//Le dice al servidor cuando llega datos de un formulario convertirlos en json
+app.use(methodOverride('_method'));
+
 
 //Global Variables
 
