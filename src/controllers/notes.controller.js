@@ -45,6 +45,7 @@ notesCtrl.updateNotes = async (req, res) =>{
 
 //Eliminando datos
 notesCtrl.deleteNote = async (req, res) =>{
+    const note = await Note.findById(req.params.id).lean();
     if(note.user != req.user.id){
         req.flash('error_msg', 'No authorized');
         return res.redirect('/notes');
